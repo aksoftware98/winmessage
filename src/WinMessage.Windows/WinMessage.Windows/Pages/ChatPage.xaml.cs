@@ -38,11 +38,11 @@ namespace WinMessage.Windows.Pages
 		{
 			Conversations.Add(new Conversation
 			{
-				DisplayName = "Cassie",
+				DisplayName = "Sarah Johnson",
 				Id = Guid.NewGuid().ToString(),
 				LastMessageTime = "11:42 PM",
 				LatestMessage = "Sure thing, I will talk to you soon",
-				ProfilePictureUrl = @"ms-appx:///Assets/Images/person-1.jpg"
+				ProfilePictureUrl = @"ms-appx:///Assets/Images/person-1.png"
 			});
 			Conversations.Add(new Conversation
 			{
@@ -50,7 +50,7 @@ namespace WinMessage.Windows.Pages
 				Id = Guid.NewGuid().ToString(),
 				LastMessageTime = "10:56 PM",
 				LatestMessage = "Have good night!!",
-				ProfilePictureUrl = @"ms-appx:///Assets/Images/person-2.jpg"
+				ProfilePictureUrl = @"ms-appx:///Assets/Images/person-2.png"
 			});
 			Conversations.Add(new Conversation
 			{
@@ -58,7 +58,7 @@ namespace WinMessage.Windows.Pages
 				Id = Guid.NewGuid().ToString(),
 				LastMessageTime = "Yesterday",
 				LatestMessage = "Bye bye!",
-				ProfilePictureUrl = @"ms-appx:///Assets/Images/person-3.jpg"
+				ProfilePictureUrl = @"ms-appx:///Assets/Images/person-3.png"
 			});
 			Conversations.Add(new Conversation
 			{
@@ -66,7 +66,7 @@ namespace WinMessage.Windows.Pages
 				Id = Guid.NewGuid().ToString(),
 				LastMessageTime = "Yesterday",
 				LatestMessage = "🚀🚀🚀🚀",
-				ProfilePictureUrl = @"ms-appx:///Assets/Images/person-4.jpg"
+				ProfilePictureUrl = @"ms-appx:///Assets/Images/person-4.png"
 			});
 		}
 	}

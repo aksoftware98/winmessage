@@ -77,7 +77,7 @@
                                 <Grid MaxHeight="65"
                                       Margin="0 6"
                                       CornerRadius="10"
-                                      Padding="0 5">    
+                                      Padding="0 5">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="Auto" />
                                         <ColumnDefinition Width="*" />
@@ -126,7 +126,78 @@
             </Pivot>
         </Grid>
 
+        <Grid Grid.Column="1" Padding="10 0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
 
+            <Grid CornerRadius="10"
+                  Background="{ThemeResource SystemControlBackgroundBaseLowRevealBorderBrush}"
+                  Padding="5"
+                  Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <PersonPicture Width="55"
+                               Height="55"
+                               Margin="10 0"
+                               DisplayName="Sarah Johnson"
+                               ProfilePicture="ms-appx:///Assets/Images/person-1.png" />
+
+                <StackPanel Grid.Column="1">
+                    <TextBlock Text="Sarah Johnson"
+                               Style="{ThemeResource SubtitleTextBlockStyle}" />
+                    <TextBlock Text="Typing..."
+                               Margin="0 5 0 0"
+                               Style="{ThemeResource CaptionTextBlockStyle}" />
+                </StackPanel>
+
+                <StackPanel Grid.Column="2"
+                            VerticalAlignment="Center"
+                            Orientation="Horizontal">
+                    <Button Width="35"
+                            Height="35"
+                            Padding="0"
+                            Margin="10 0"
+                            CornerRadius="17">
+                        <Viewbox Width="20"
+                                 Height="20" HorizontalAlignment="Center">
+                            <SymbolIcon Symbol="ContactInfo" />
+                        </Viewbox>
+                    </Button>
+
+                    <Button Width="35"
+                            Height="35"
+                            Padding="0"
+                            CornerRadius="17"
+                            Style="{ThemeResource AccentButtonStyle}">
+                        <Viewbox Width="20"
+                                 Height="20" HorizontalAlignment="Center">
+                            <SymbolIcon Symbol="Phone" />
+                        </Viewbox>
+                    </Button>
+
+                    <Button Width="35"
+                            Height="35"
+                            Padding="0"
+                            Margin="5 0"
+                            CornerRadius="17"
+                            Style="{ThemeResource AccentButtonStyle}">
+                        <Viewbox Width="20"
+                                 Height="20" HorizontalAlignment="Center">
+                            <SymbolIcon Symbol="Video" />
+                        </Viewbox>
+                    </Button>
+                </StackPanel>
+
+
+            </Grid>
+        </Grid>
 
 
     </Grid>
