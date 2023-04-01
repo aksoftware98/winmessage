@@ -9,6 +9,123 @@
     mc:Ignorable="d"
     xmlns:root="using:WinMessage.Windows">
 
+    <Page.Resources>
+        <ResourceDictionary>
+
+            <ThemeShadow x:Name="ChatShadow" />
+
+            <DataTemplate x:Key="SentMessageDataTempalte"
+                          x:DataType="local:Message">
+                <Grid Margin="150 5 5 5"
+                      Padding="5">
+                    <Grid CornerRadius="10"
+                          Background="{ThemeResource SystemControlBackgroundAccentBrush}"
+                          HorizontalAlignment="Right"
+                          Padding="10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.Shadow>
+                            <ThemeShadow />
+                        </Grid.Shadow>
+                        <TextBlock Text="{x:Bind Content}"
+                                   Style="{ThemeResource BodyTextBlockStyle}" 
+                                   Grid.Row="0" />
+
+                        <TextBlock Text="{x:Bind Time}"
+                                   HorizontalAlignment="Right"
+                                   Foreground="#BBBBBB"
+                                   Style="{ThemeResource CaptionTextBlockStyle}" 
+                                   Grid.Row="1"
+                                   Margin="0 5 0 0"/>
+                    </Grid>
+                   
+                </Grid>
+            </DataTemplate>
+
+            <DataTemplate x:Key="ReceivedMessageDataTemplate"
+                          x:DataType="local:Message">
+                <Grid Margin="5 5 150 5"
+                      Padding="5">
+                    <Grid CornerRadius="10"
+                           Shadow="{ThemeResource ChatShadow}"
+                          Background="{ThemeResource SystemControlBackgroundBaseLowRevealBackgroundBrush}"
+                          HorizontalAlignment="Left"
+                          Padding="10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                       
+                        <TextBlock Text="{x:Bind Content}"
+                                   Style="{ThemeResource BodyTextBlockStyle}" 
+                                   Grid.Row="0" />
+
+                        <TextBlock Text="{x:Bind Time}"
+                                   Foreground="#BBBBBB"
+                                   HorizontalAlignment="Right"
+                                   Style="{ThemeResource CaptionTextBlockStyle}" 
+                                   Grid.Row="1"
+                                   Margin="0 5 0 0"/>
+                    </Grid>
+
+                </Grid>
+            </DataTemplate>
+
+            <DataTemplate x:Key="SentImagesMessageDataTemplate"
+                          x:DataType="local:Message">
+                <Grid Margin="150 5 5 5"
+                      Padding="5">
+                    <Grid CornerRadius="10"
+                          Background="{ThemeResource SystemControlBackgroundAccentBrush}"
+                          HorizontalAlignment="Right"
+                          Padding="10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.Shadow>
+                            <ThemeShadow />
+                        </Grid.Shadow>
+                        <StackPanel>
+                            <Rectangle RadiusX="10" RadiusY="10" Width="400" Height="350">
+                                <Rectangle.Fill>
+                                    <ImageBrush ImageSource="{x:Bind ProfilePictureUrl}" Stretch="UniformToFill"/>
+                                </Rectangle.Fill>
+                            </Rectangle>
+                            
+
+                            <TextBlock Text="{x:Bind Content}"
+                                   Style="{ThemeResource BodyTextBlockStyle}" 
+                                   Grid.Row="0"
+                                       Margin="0 5 0 0"/>
+                        </StackPanel>
+                        
+
+                        <TextBlock Text="{x:Bind Time}"
+                                   HorizontalAlignment="Right"
+                                   Foreground="#BBBBBB"
+                                   Style="{ThemeResource CaptionTextBlockStyle}" 
+                                   Grid.Row="1"
+                                   Margin="0 5 0 0"/>
+                    </Grid>
+
+                </Grid>
+            </DataTemplate>
+
+            <DataTemplate x:Key="ReceivedImagesMessageDataTemplate">
+
+            </DataTemplate>
+
+            <local:MessageTemplateSelector x:Key="MessageTemplateSelector"
+                                           SentMessageDataTemplate="{StaticResource SentMessageDataTempalte}"
+                                           ReceivedMessageDataTemplate="{StaticResource ReceivedMessageDataTemplate}"
+                                           SentImagesMessageDataTemplate="{StaticResource SentImagesMessageDataTemplate}"
+                                           ReceivedImagesMessageDataTemplate="{StaticResource ReceivedImagesMessageDataTemplate}"/>
+        </ResourceDictionary>
+    </Page.Resources>
+    
     <Grid Padding="0, 35, 0, 0">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="350" />
@@ -134,8 +251,10 @@
             </Grid.RowDefinitions>
 
             <Grid CornerRadius="10"
-                  Background="{ThemeResource SystemControlBackgroundBaseLowRevealBorderBrush}"
+                  x:Name="ProfileDetailsGrid"
+                  Background="{ThemeResource SystemControlBackgroundBaseLowRevealBackgroundBrush}"
                   Padding="5"
+                  Shadow="{ThemeResource CommandBarFlyoutOverflowShadow}"
                   Grid.Row="0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto" />
@@ -174,6 +293,17 @@
                     <Button Width="35"
                             Height="35"
                             Padding="0"
+                            Margin="10 0"
+                            CornerRadius="17">
+                        <Viewbox Width="20"
+                                 Height="20" HorizontalAlignment="Center">
+                            <SymbolIcon Symbol="Find" />
+                        </Viewbox>
+                    </Button>
+
+                    <Button Width="35"
+                            Height="35"
+                            Padding="0"
                             CornerRadius="17"
                             Style="{ThemeResource AccentButtonStyle}">
                         <Viewbox Width="20"
@@ -194,12 +324,17 @@
                         </Viewbox>
                     </Button>
                 </StackPanel>
-                
-                
-                
-
-
             </Grid>
+
+
+            <ListView Grid.Row="1"
+                      ItemsSource="{x:Bind Messages}"
+                      ItemTemplateSelector="{StaticResource MessageTemplateSelector}"
+                      SelectionMode="None">
+                
+            </ListView>
+            
+           
 
             <Grid CornerRadius="10"
                   Background="{ThemeResource SystemControlBackgroundBaseLowRevealBorderBrush}"

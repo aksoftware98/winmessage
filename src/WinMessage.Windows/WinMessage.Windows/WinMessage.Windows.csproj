@@ -12,6 +12,7 @@
     <EnableMsixTooling>true</EnableMsixTooling>
   </PropertyGroup>
   <ItemGroup>
+    <None Remove="Assets\Images\ChatImage.png" />
     <None Remove="Assets\Images\person-1.png" />
     <None Remove="Assets\Images\person-2.png" />
     <None Remove="Assets\Images\person-3.png" />
