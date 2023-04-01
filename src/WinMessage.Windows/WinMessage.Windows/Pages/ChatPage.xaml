@@ -11,8 +11,8 @@
 
     <Grid Padding="0, 35, 0, 0">
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="350" />
             <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="2*" />
         </Grid.ColumnDefinitions>
 
         <Grid Grid.Column="0" Padding="10 0">
@@ -61,32 +61,34 @@
                         Height="25"
                         Margin="5 0">
                     <Viewbox Height="100">
-                    <SymbolIcon Symbol="Find"/>
+                        <SymbolIcon Symbol="Find"/>
                     </Viewbox>
                 </Button>
-                        
+
             </Grid>
 
-            <ListView Grid.Row="3"
+            <Pivot Grid.Row="3" >
+                <PivotItem Header="Chats">
+                    <ListView 
                       ItemsSource="{x:Bind Conversations}"
-                      Margin="0 10" >
-                <ListView.ItemTemplate>
-                    <DataTemplate x:DataType="root:Conversation">
-                        <Grid MaxHeight="65"
-                              Margin="0 6"
-                              CornerRadius="10"
-                              Padding="0 5">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto" />
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="Auto" />
-                            </Grid.ColumnDefinitions>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto" />
-                                <RowDefinition Height="*" />
-                            </Grid.RowDefinitions>
+                      Margin="-15 10 0 0" >
+                        <ListView.ItemTemplate>
+                            <DataTemplate x:DataType="root:Conversation">
+                                <Grid MaxHeight="65"
+                                      Margin="0 6"
+                                      CornerRadius="10"
+                                      Padding="0 5">    
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
 
-                            <PersonPicture DisplayName="{x:Bind DisplayName}"
+                                    <PersonPicture DisplayName="{x:Bind DisplayName}"
                                            ProfilePicture="{x:Bind ProfilePicture}"
                                            Width="45"
                                            Height="45"
@@ -96,29 +98,32 @@
                                            Margin="0 0 10 0"
                                            />
 
-                            <TextBlock Text="{x:Bind DisplayName}"
+                                    <TextBlock Text="{x:Bind DisplayName}"
                                        Grid.Column="1"
                                        Grid.Row="0"
                                        Style="{ThemeResource BodyTextBlockStyle}" />
 
-                            <TextBlock Text="{x:Bind LastMessageTime}"
+                                    <TextBlock Text="{x:Bind LastMessageTime}"
                                        Grid.Column="2"
                                        Grid.Row="0"
                                        Style="{ThemeResource CaptionTextBlockStyle}" />
 
-                            <TextBlock Text="{x:Bind LatestMessage}"
+                                    <TextBlock Text="{x:Bind LatestMessage}"
                                        Grid.Column="1"
                                        Grid.Row="1"
                                        Grid.ColumnSpan="2"
                                        Style="{ThemeResource BodyTextBlockStyle}" />
-                        </Grid>
-                        
-                       
-                        
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+                                </Grid>
 
+
+
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </PivotItem>
+                <PivotItem Header="My Contacts" />
+                <PivotItem Header="Find" />
+            </Pivot>
         </Grid>
 
 

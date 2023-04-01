@@ -12,12 +12,10 @@
     <EnableMsixTooling>true</EnableMsixTooling>
   </PropertyGroup>
   <ItemGroup>
-    <Content Remove="Assets\Images\person-1.jpg" />
-    <Content Remove="Assets\Images\person-2.jpg" />
-    <Content Remove="Assets\Images\person-3.jpg" />
-    <Content Remove="Assets\Images\person-4.jpg" />
-  </ItemGroup>
-  <ItemGroup>
+    <None Remove="Assets\Images\person-1.jpg" />
+    <None Remove="Assets\Images\person-2.jpg" />
+    <None Remove="Assets\Images\person-3.jpg" />
+    <None Remove="Assets\Images\person-4.jpg" />
     <None Remove="Pages\ChatPage.xaml" />
   </ItemGroup>
 

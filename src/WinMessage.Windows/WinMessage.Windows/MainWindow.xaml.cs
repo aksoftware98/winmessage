@@ -6,6 +6,7 @@ using Microsoft.UI.Xaml.Controls.Primitives;
 using Microsoft.UI.Xaml.Data;
 using Microsoft.UI.Xaml.Input;
 using Microsoft.UI.Xaml.Media;
+using Microsoft.UI.Xaml.Media.Imaging;
 using Microsoft.UI.Xaml.Navigation;
 using System;
 using System.Collections.Generic;
@@ -55,13 +56,15 @@ namespace WinMessage.Windows
 	{
 		public string Id { get; set; }
 
-		public string ProfilePicture { get; set; }
+		public string ProfilePictureUrl { get; set; }
 
 		public string DisplayName { get; set; }
 		
 		public string LatestMessage { get; set; }
 
 		public string LastMessageTime { get; set; }
+
+		public ImageSource ProfilePicture => new BitmapImage(new Uri(ProfilePictureUrl));
 		
 		
 	}
