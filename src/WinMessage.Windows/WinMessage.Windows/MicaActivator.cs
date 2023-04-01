@@ -76,10 +76,11 @@ namespace WinMessage.Windows
 				SetConfigurationSourceTheme();
 
 				m_backdropController = new Microsoft.UI.Composition.SystemBackdrops.MicaController();
-				m_backdropController.TintColor = Color.FromArgb(22, 22, 22, 255);
-				//m_backdropController.FallbackColor = Windows.UI.Color.FromArgb(53, 30, 40, 50);
-				//m_backdropController.TintOpacity = 0.3f;
-				//m_backdropController.LuminosityOpacity = 0.5f;
+				//m_backdropController.TintOpacity = 5f;
+				//m_backdropController.TintColor = Color.FromArgb(22, 22, 22, 255);
+				m_backdropController.FallbackColor = Color.FromArgb(53, 30, 40, 255);
+				m_backdropController.TintOpacity = 0.075f;
+				m_backdropController.LuminosityOpacity = 0.075f;
 				// Enable the system backdrop.
 				// Note: Be sure to have "using WinRT;" to support the Window.As<...>() call.
 				m_backdropController.AddSystemBackdropTarget(window.As<Microsoft.UI.Composition.ICompositionSupportsSystemBackdrop>());

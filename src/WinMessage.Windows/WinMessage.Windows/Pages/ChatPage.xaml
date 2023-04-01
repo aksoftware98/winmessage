@@ -241,6 +241,18 @@
                 <PivotItem Header="My Contacts" />
                 <PivotItem Header="Find" />
             </Pivot>
+
+            <StackPanel Grid.Row="4">
+
+                <TextBlock Text="Developed by Ahmad Mozaffar" HorizontalAlignment="Center"
+                           Style="{ThemeResource CaptionTextBlockStyle}"
+                           />
+
+                <TextBlock Text="By Windows user to the Windows users" HorizontalAlignment="Center"
+                           Style="{ThemeResource CaptionTextBlockStyle}"
+                           Margin="0 3"/>
+            </StackPanel>
+            
         </Grid>
 
         <Grid Grid.Column="1" Padding="10 0">

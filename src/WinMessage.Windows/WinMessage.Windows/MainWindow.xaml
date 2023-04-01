@@ -8,5 +8,15 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Frame x:Name="MainFrame" />
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="34" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid x:Name="TitleBarGrid" Padding="20 7">
+            <TextBlock Text="WinMessage" />
+        </Grid>
+        <Frame x:Name="MainFrame" Grid.Row="1" />
+    </Grid>
+    
 </Window>

@@ -165,7 +165,7 @@ namespace WinMessage.Windows.Pages
 				ProfilePictureUrl = null,
 				Content = "Lovely! 😍 😍 Planning to support audio and video call??",
 				IsImage = false,
-				Time = "11:40 PM"
+				Time = "11:43 PM"
 			});
 			Messages.Add(new Message
 			{

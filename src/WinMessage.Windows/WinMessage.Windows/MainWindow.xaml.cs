@@ -35,8 +35,7 @@ namespace WinMessage.Windows
 		
 			new MicaActivator(this);
 			MainFrame.SourcePageType = typeof(ChatPage);
-			GetAppWindowAndPresenter();
-			_presenter.SetBorderAndTitleBar(false, false);
+			SetTitleBar(TitleBarGrid);
 		}
 
 		public void GetAppWindowAndPresenter()
